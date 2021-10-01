@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata: generateName: git-clone-run-
+spec: pipelineRef: name: pipeline-tekton-git-clone-assignment
+  params:
+    - name: source-repo
+      value: "https://github.com/upslopeio/lint-markdown-files"
+  workspaces:
+    - name: pipeline-shared-data
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: 1Gi
+          accessModes:
+            - ReadWriteOnce
