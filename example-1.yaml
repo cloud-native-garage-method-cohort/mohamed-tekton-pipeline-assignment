@@ -1,8 +1,9 @@
+---
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   generateName: git-clone-run-
-spec: 
+spec:
   pipelineRef:
     name: pipeline-tekton-git-clone-assignment
   params:
